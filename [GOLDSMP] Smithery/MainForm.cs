@@ -45,6 +45,12 @@ namespace _GOLDSMP__Smithery
             
         }
 
+        static public Bitmap GetRandomBitmapFromDir(string path)
+        {
+            string way = "../../textures/";
+            string[] files = Directory.GetFiles(way + path, "*.png", SearchOption.TopDirectoryOnly);
+            return new Bitmap(files[random.Next(files.Length)]);
+        }
         static public Bitmap GetRandomBitmapFromDir(string path, out int id)
         {
             string way = "../../textures/";
@@ -52,12 +58,16 @@ namespace _GOLDSMP__Smithery
             id = random.Next(files.Length);
             return new Bitmap(files[id]);
         }
-        static public Bitmap GetBitmapByID(string path, out int id)
+        static public Bitmap GetBitmap(string pathToBmap)
         {
-            string[] files = Directory.GetFiles(path, "*.png*", SearchOption.AllDirectories);
-            id = random.Next(files.Length);
-            return new Bitmap(files[id]);
+            return new Bitmap(pathToBmap);
         }
+        //static public Bitmap GetBitmap(int id)
+        //{
+        //    string[] files = Directory.GetFiles(dirPath, "*.png*", SearchOption.TopDirectoryOnly);
+        //    id = random.Next(files.Length);
+        //    return new Bitmap(files[id]);
+        //}
 
         static public int CountFileInDir(string path)
         {
@@ -68,11 +78,11 @@ namespace _GOLDSMP__Smithery
         {
             int[] res = new int[5];
 
-            res[0] = CountFileInDir("1. blade/");
-            res[1] = CountFileInDir("2. handle/");
-            res[2] = CountFileInDir("3. guard/");
-            res[3] = CountFileInDir("4. pommel/");
-            res[4] = CountFileInDir("5. decor/");
+            res[0] = CountFileInDir(Sword.sppath[(int)sp.blade]);
+            res[1] = CountFileInDir(Sword.sppath[(int)sp.handle]);
+            res[2] = CountFileInDir(Sword.sppath[(int)sp.guard]);
+            res[3] = CountFileInDir(Sword.sppath[(int)sp.pommel]);
+            res[4] = CountFileInDir(Sword.sppath[(int)sp.decor]);
 
             return res;
         }
@@ -142,11 +152,11 @@ namespace _GOLDSMP__Smithery
         {
             int[] res = new int[5];
 
-            res[0] = CountFileInDir("1. blade/");
-            res[1] = CountFileInDir("2. handle/");
-            res[2] = CountFileInDir("3. guard/");
-            res[3] = CountFileInDir("4. pommel/");
-            res[4] = CountFileInDir("5. decor/");
+            res[0] = CountFileInDir(Sword.sppath[(int)sp.blade]);
+            res[1] = CountFileInDir(Sword.sppath[(int)sp.handle]);
+            res[2] = CountFileInDir(Sword.sppath[(int)sp.guard]);
+            res[3] = CountFileInDir(Sword.sppath[(int)sp.pommel]);
+            res[4] = CountFileInDir(Sword.sppath[(int)sp.decor]);
 
             return res[0]+res[1]+res[2]+res[3]+res[4];
         }
@@ -233,11 +243,11 @@ namespace _GOLDSMP__Smithery
                     //tempSword.scaleFactor = 16; //tempSword.blade.Width;
                 //}
 
-            tempSword.parts[(byte)sp.blade] = new Bitmap(GetRandomBitmapFromDir("1. blade/", out ids[0]));
-            tempSword.parts[(byte)sp.handle] = new Bitmap(GetRandomBitmapFromDir("2. handle/", out ids[1]));
-            tempSword.parts[(byte)sp.guard] = new Bitmap(GetRandomBitmapFromDir("3. guard/", out ids[2]));
-            tempSword.parts[(byte)sp.pommel] = new Bitmap(GetRandomBitmapFromDir("4. pommel/", out ids[3]));
-            tempSword.parts[(byte)sp.decor] = new Bitmap(GetRandomBitmapFromDir("5. decor/", out ids[4]));
+            tempSword.parts[(byte)sp.blade] = new Bitmap(GetRandomBitmapFromDir(Sword.sppath[(int)sp.blade], out ids[0]));
+            tempSword.parts[(byte)sp.handle] = new Bitmap(GetRandomBitmapFromDir(Sword.sppath[(int)sp.handle], out ids[1]));
+            tempSword.parts[(byte)sp.guard] = new Bitmap(GetRandomBitmapFromDir(Sword.sppath[(int)sp.guard], out ids[2]));
+            tempSword.parts[(byte)sp.pommel] = new Bitmap(GetRandomBitmapFromDir(Sword.sppath[(int)sp.pommel], out ids[3]));
+            tempSword.parts[(byte)sp.decor] = new Bitmap(GetRandomBitmapFromDir(Sword.sppath[(int)sp.decor], out ids[4]));
 
             //TODO resourcepack_code
 
@@ -270,11 +280,8 @@ namespace _GOLDSMP__Smithery
 
             textBox2.Text = textBox1.Text + tempSword.resourcepack_code;
         }
-        private void Generate(object sender, EventArgs e)
+        private void Print()
         {
-            tempSword = new Sword();
-
-            //layer0.Image = tempSword.fin;
             pb_sword.Image = Scale(tempSword.fin, tempSword.finFrame, tempSword.finFrame);
 
             layer_0.Image = Scale(tempSword.parts[(byte)sp.blade], tempSword.finFrame, tempSword.finFrame);
@@ -283,6 +290,14 @@ namespace _GOLDSMP__Smithery
             layer_3.Image = Scale(tempSword.parts[(byte)sp.pommel], tempSword.finFrame, tempSword.finFrame);
             layer_4.Image = Scale(tempSword.parts[(byte)sp.decor], tempSword.finFrame, tempSword.finFrame);
         }
+        private void Generate(object sender, EventArgs e)
+        {
+            tempSword = new Sword();
+            Print();
+        }
+
+
+
 
         private void StartSaving(object sender, EventArgs e)
         {
@@ -291,27 +306,38 @@ namespace _GOLDSMP__Smithery
 
         private void layer_0_Click(object sender, EventArgs e)
         {
-            //tempSword.parts[sp.blade] = GetRandomBitmapFromDir();
+            tempSword.parts[(int)sp.blade] = GetRandomBitmapFromDir(Sword.sppath[(int)sp.blade]);
+            tempSword.fin = tempSword.updateFin();
+            Print();
         }
 
         private void layer_1_Click(object sender, EventArgs e)
         {
-
+            tempSword.parts[(int)sp.handle] = GetRandomBitmapFromDir(Sword.sppath[(int)sp.handle]);
+            tempSword.fin = tempSword.updateFin();
+            Print();
         }
 
         private void layer_2_Click(object sender, EventArgs e)
         {
+            tempSword.parts[(int)sp.guard] = GetRandomBitmapFromDir(Sword.sppath[(int)sp.guard]);
+            tempSword.fin = tempSword.updateFin();
+            Print();
 
         }
 
         private void layer_3_Click(object sender, EventArgs e)
         {
-
+            tempSword.parts[(int)sp.pommel] = GetRandomBitmapFromDir(Sword.sppath[(int)sp.pommel]);
+            tempSword.fin = tempSword.updateFin();
+            Print();
         }
 
         private void layer_4_Click(object sender, EventArgs e)
         {
-
+            tempSword.parts[(int)sp.decor] = GetRandomBitmapFromDir(Sword.sppath[(int)sp.decor]);
+            tempSword.fin = tempSword.updateFin();
+            Print();
         }
     }
 
@@ -344,37 +370,18 @@ namespace _GOLDSMP__Smithery
         public string resourcepack_code;
 
         //aka Sword Parts Path enumerator
-        static readonly string[] sppath = new string[5]
+        public static readonly string[] sppath = new string[5]
         {
-                "1. blade", //0
-                "2. handle", //1
-                "3. guard", //2
-                "4. pommel", //3
-                "5. decor" //4
+                "0. blade", //0
+                "1. handle", //1
+                "2. guard", //2
+                "3. pommel", //3
+                "4. decor" //4
         };
-        public Sword()
+
+        public Bitmap updateFin()
         {
-
-            parts = new Bitmap[5];
-            int[] ids = new int[5];
-
-
-            //Загрузить картинки для каждой части
-            for (int i=0; i < parts.Length;  i++)
-            {
-                parts[i] = MainForm.GetRandomBitmapFromDir(sppath[i], out ids[i]);
-            }
-
-            this.resourcepack_code = MainForm.EndodeTexturePath(ids);
-            
-
-
-            finFrame = 160;
-            //TODO resourcepack_code
-
-
-            //Соединяем 5 картинок в 1
-            fin =
+            return 
                 MainForm.Combine(
                     MainForm.Combine(
                         MainForm.Combine(
@@ -388,6 +395,27 @@ namespace _GOLDSMP__Smithery
                     ),
                     parts[(byte)sp.decor]
                     );
+        }
+        public Sword()
+        {
+
+            parts = new Bitmap[5];
+            int[] ids = new int[5];
+
+
+            //Загрузить картинки для каждой части
+            for (int i=0; i < parts.Length;  i++)
+            {
+                parts[i] = MainForm.GetRandomBitmapFromDir(sppath[i], out ids[i]);
+            }
+
+            resourcepack_code = MainForm.EndodeTexturePath(ids);    
+
+            finFrame = 160;
+            //TODO resourcepack_code
+
+            //Соединяем 5 картинок в 1
+            fin = updateFin();
         }
 
     }
