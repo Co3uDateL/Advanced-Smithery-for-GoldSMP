@@ -17,15 +17,15 @@ namespace _GOLDSMP__Smithery
         //avaliable char list for generating resourcepack code
         //Всего 72 элемента = 10 + 26 + 26 + 10
         //Всего 5 мест с
-        static public string alphabet =
+        public static readonly string alphabet =
             "0123456789" +
             "abcdefghijklmnopqrstuvwxyz" +
             "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
             "!{}[]@#$%^";
 
-        static public string ignoredChars = "()0123456789 ";
+        public static readonly string ignoredChars = "()0123456789 ";
 
-        static public string[] ignoredWords = {
+        public static readonly string[] ignoredWords = {
             "- copia",
             "- копия"
         };
@@ -35,9 +35,6 @@ namespace _GOLDSMP__Smithery
         public MainForm()
         {
             InitializeComponent();
-            //layer0.Image = new sword().finImage;
-            CountTextures.Text = "" + CountAllFilesSum();
-            CountVariations.Text = "" + CountAllVariety();
         }
 
         private void ConfigureGenerator(object sender, EventArgs e)
@@ -310,6 +307,11 @@ namespace _GOLDSMP__Smithery
         }
 
         private void layer_4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pb_sword_Click(object sender, EventArgs e)
         {
 
         }

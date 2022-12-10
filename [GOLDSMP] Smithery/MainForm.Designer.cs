@@ -42,25 +42,19 @@ namespace _GOLDSMP__Smithery
             this.layer_4 = new System.Windows.Forms.PictureBox();
             this.layer_3 = new System.Windows.Forms.PictureBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.CountTextures = new System.Windows.Forms.Label();
-            this.CountVariations = new System.Windows.Forms.Label();
-            this.VariationId = new System.Windows.Forms.Label();
             this.Code2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.FolderBro = new System.Windows.Forms.FolderBrowserDialog();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pb_sword)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layer_0)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layer_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layer_2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layer_4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layer_3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -83,7 +77,7 @@ namespace _GOLDSMP__Smithery
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.MaxLength = 22;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(511, 26);
+            this.textBox1.Size = new System.Drawing.Size(487, 26);
             this.textBox1.TabIndex = 1;
             this.textBox1.Text = "Это имя вашего меча";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -117,13 +111,14 @@ namespace _GOLDSMP__Smithery
             // 
             this.pb_sword.BackColor = System.Drawing.Color.Gray;
             this.pb_sword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pb_sword.Location = new System.Drawing.Point(13, 123);
-            this.pb_sword.Margin = new System.Windows.Forms.Padding(53, 0, 0, 49);
+            this.pb_sword.Location = new System.Drawing.Point(20, 120);
+            this.pb_sword.Margin = new System.Windows.Forms.Padding(0);
             this.pb_sword.Name = "pb_sword";
-            this.pb_sword.Size = new System.Drawing.Size(427, 394);
+            this.pb_sword.Size = new System.Drawing.Size(400, 400);
             this.pb_sword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pb_sword.TabIndex = 8;
             this.pb_sword.TabStop = false;
+            this.pb_sword.Click += new System.EventHandler(this.pb_sword_Click);
             // 
             // ConfigButton
             // 
@@ -153,13 +148,16 @@ namespace _GOLDSMP__Smithery
             // 
             // layer_0
             // 
+            this.layer_0.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.layer_0.BackColor = System.Drawing.Color.Gray;
             this.layer_0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.layer_0.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.layer_0.Location = new System.Drawing.Point(440, 123);
-            this.layer_0.Margin = new System.Windows.Forms.Padding(53, 0, 0, 49);
+            this.layer_0.Location = new System.Drawing.Point(420, 120);
+            this.layer_0.Margin = new System.Windows.Forms.Padding(0);
             this.layer_0.Name = "layer_0";
-            this.layer_0.Size = new System.Drawing.Size(85, 78);
+            this.layer_0.Size = new System.Drawing.Size(80, 80);
             this.layer_0.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.layer_0.TabIndex = 11;
             this.layer_0.TabStop = false;
@@ -167,13 +165,16 @@ namespace _GOLDSMP__Smithery
             // 
             // layer_1
             // 
+            this.layer_1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.layer_1.BackColor = System.Drawing.Color.Gray;
             this.layer_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.layer_1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.layer_1.Location = new System.Drawing.Point(440, 202);
-            this.layer_1.Margin = new System.Windows.Forms.Padding(53, 0, 0, 49);
+            this.layer_1.Location = new System.Drawing.Point(420, 200);
+            this.layer_1.Margin = new System.Windows.Forms.Padding(0);
             this.layer_1.Name = "layer_1";
-            this.layer_1.Size = new System.Drawing.Size(85, 78);
+            this.layer_1.Size = new System.Drawing.Size(80, 80);
             this.layer_1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.layer_1.TabIndex = 12;
             this.layer_1.TabStop = false;
@@ -181,13 +182,14 @@ namespace _GOLDSMP__Smithery
             // 
             // layer_2
             // 
+            this.layer_2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.layer_2.BackColor = System.Drawing.Color.Gray;
             this.layer_2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.layer_2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.layer_2.Location = new System.Drawing.Point(440, 281);
-            this.layer_2.Margin = new System.Windows.Forms.Padding(53, 0, 0, 49);
+            this.layer_2.Location = new System.Drawing.Point(420, 280);
+            this.layer_2.Margin = new System.Windows.Forms.Padding(0);
             this.layer_2.Name = "layer_2";
-            this.layer_2.Size = new System.Drawing.Size(85, 78);
+            this.layer_2.Size = new System.Drawing.Size(80, 80);
             this.layer_2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.layer_2.TabIndex = 13;
             this.layer_2.TabStop = false;
@@ -195,13 +197,14 @@ namespace _GOLDSMP__Smithery
             // 
             // layer_4
             // 
+            this.layer_4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.layer_4.BackColor = System.Drawing.Color.Gray;
             this.layer_4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.layer_4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.layer_4.Location = new System.Drawing.Point(440, 438);
-            this.layer_4.Margin = new System.Windows.Forms.Padding(53, 0, 0, 49);
+            this.layer_4.Location = new System.Drawing.Point(420, 440);
+            this.layer_4.Margin = new System.Windows.Forms.Padding(0);
             this.layer_4.Name = "layer_4";
-            this.layer_4.Size = new System.Drawing.Size(85, 78);
+            this.layer_4.Size = new System.Drawing.Size(80, 80);
             this.layer_4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.layer_4.TabIndex = 15;
             this.layer_4.TabStop = false;
@@ -209,13 +212,14 @@ namespace _GOLDSMP__Smithery
             // 
             // layer_3
             // 
+            this.layer_3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.layer_3.BackColor = System.Drawing.Color.Gray;
             this.layer_3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.layer_3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.layer_3.Location = new System.Drawing.Point(440, 359);
-            this.layer_3.Margin = new System.Windows.Forms.Padding(53, 0, 0, 49);
+            this.layer_3.Location = new System.Drawing.Point(420, 360);
+            this.layer_3.Margin = new System.Windows.Forms.Padding(0);
             this.layer_3.Name = "layer_3";
-            this.layer_3.Size = new System.Drawing.Size(85, 78);
+            this.layer_3.Size = new System.Drawing.Size(80, 80);
             this.layer_3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.layer_3.TabIndex = 14;
             this.layer_3.TabStop = false;
@@ -231,176 +235,83 @@ namespace _GOLDSMP__Smithery
             this.textBox2.MaxLength = 30;
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(511, 26);
+            this.textBox2.Size = new System.Drawing.Size(487, 26);
             this.textBox2.TabIndex = 16;
             this.textBox2.Text = "Здесь будет имя которое нужно вставить в майнкрафт";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(529, 123);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(162, 20);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Количетво текстур";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(529, 162);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(180, 20);
-            this.label5.TabIndex = 19;
-            this.label5.Text = "Количество вариаций";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(529, 202);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(135, 20);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "Код элемента 1";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(529, 244);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(135, 20);
-            this.label7.TabIndex = 21;
-            this.label7.Text = "Код элемента 2";
-            // 
-            // CountTextures
-            // 
-            this.CountTextures.AutoSize = true;
-            this.CountTextures.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CountTextures.Location = new System.Drawing.Point(728, 123);
-            this.CountTextures.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.CountTextures.Name = "CountTextures";
-            this.CountTextures.Size = new System.Drawing.Size(45, 20);
-            this.CountTextures.TabIndex = 22;
-            this.CountTextures.Text = "null";
-            // 
-            // CountVariations
-            // 
-            this.CountVariations.AutoSize = true;
-            this.CountVariations.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CountVariations.Location = new System.Drawing.Point(728, 162);
-            this.CountVariations.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.CountVariations.Name = "CountVariations";
-            this.CountVariations.Size = new System.Drawing.Size(45, 20);
-            this.CountVariations.TabIndex = 23;
-            this.CountVariations.Text = "null";
-            // 
-            // VariationId
-            // 
-            this.VariationId.AutoSize = true;
-            this.VariationId.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.VariationId.Location = new System.Drawing.Point(728, 281);
-            this.VariationId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.VariationId.Name = "VariationId";
-            this.VariationId.Size = new System.Drawing.Size(45, 20);
-            this.VariationId.TabIndex = 24;
-            this.VariationId.Text = "null";
             // 
             // Code2
             // 
             this.Code2.AutoSize = true;
             this.Code2.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Code2.Location = new System.Drawing.Point(727, 244);
+            this.Code2.Location = new System.Drawing.Point(339, 500);
             this.Code2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Code2.Name = "Code2";
-            this.Code2.Size = new System.Drawing.Size(45, 20);
+            this.Code2.Size = new System.Drawing.Size(81, 20);
             this.Code2.TabIndex = 25;
-            this.Code2.Text = "null";
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.Color.DarkRed;
-            this.button1.Location = new System.Drawing.Point(560, 423);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(307, 48);
-            this.button1.TabIndex = 26;
-            this.button1.Text = "Выбрать путь";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.StartSaving);
+            this.Code2.Text = "Код меча";
             // 
             // FolderBro
             // 
             this.FolderBro.SelectedPath = "C:\\Users\\Admin\\Desktop";
             // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Yellow;
-            this.button2.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold);
-            this.button2.ForeColor = System.Drawing.Color.DarkRed;
-            this.button2.Location = new System.Drawing.Point(560, 479);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(307, 81);
-            this.button2.TabIndex = 27;
-            this.button2.Text = "Выгрузить коллекцию";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.Location = new System.Drawing.Point(529, 281);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(108, 20);
-            this.label8.TabIndex = 28;
-            this.label8.Text = "id вариации";
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.Location = new System.Drawing.Point(728, 202);
+            this.label9.Location = new System.Drawing.Point(21, 122);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(45, 20);
+            this.label9.Size = new System.Drawing.Size(81, 20);
             this.label9.TabIndex = 29;
-            this.label9.Text = "null";
+            this.label9.Text = "Текстуры";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox1.BackColor = System.Drawing.Color.Gray;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Location = new System.Drawing.Point(420, 120);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(80, 80);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.layer_0_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox2.BackColor = System.Drawing.Color.Gray;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox2.Location = new System.Drawing.Point(420, 200);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(80, 80);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 12;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.layer_1_Click);
             // 
             // MainForm
             // 
             this.AcceptButton = this.GenerateButton;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.CancelButton = this.ConfigButton;
             this.ClientSize = new System.Drawing.Size(883, 667);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.Code2);
-            this.Controls.Add(this.VariationId);
-            this.Controls.Add(this.CountVariations);
-            this.Controls.Add(this.CountTextures);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.layer_4);
             this.Controls.Add(this.layer_3);
             this.Controls.Add(this.layer_2);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.layer_1);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.layer_0);
             this.Controls.Add(this.ConfigButton);
             this.Controls.Add(this.pb_sword);
@@ -424,6 +335,8 @@ namespace _GOLDSMP__Smithery
             ((System.ComponentModel.ISupportInitialize)(this.layer_2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layer_4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layer_3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -443,19 +356,11 @@ namespace _GOLDSMP__Smithery
         private System.Windows.Forms.PictureBox layer_4;
         private System.Windows.Forms.PictureBox layer_3;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label CountTextures;
-        private System.Windows.Forms.Label CountVariations;
-        private System.Windows.Forms.Label VariationId;
         private System.Windows.Forms.Label Code2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.FolderBrowserDialog FolderBro;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 
