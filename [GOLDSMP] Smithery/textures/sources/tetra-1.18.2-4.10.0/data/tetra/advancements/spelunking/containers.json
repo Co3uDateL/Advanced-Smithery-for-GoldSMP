@@ -1,0 +1,19 @@
+{
+    "display": {
+        "icon": {
+            "item": "minecraft:barrier"
+        },
+        "title": {
+            "translate": "tetra.advancements.spelunking.containers.title"
+        },
+        "description": {
+            "translate": "tetra.advancements.spelunking.containers.description"
+        }
+    },
+    "parent": "tetra:spelunking/ancient_ruins",
+    "criteria": {
+        "impossible": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

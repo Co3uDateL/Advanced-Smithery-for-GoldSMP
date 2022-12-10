@@ -1,0 +1,16 @@
+{
+    "variants": {
+        "powered=false,facing=down": { "model": "tetra:block/extractor_pipe", "x": 180 },
+        "powered=false,facing=up": { "model": "tetra:block/extractor_pipe" },
+        "powered=false,facing=north": { "model": "tetra:block/extractor_pipe", "x": 90 },
+        "powered=false,facing=east": { "model": "tetra:block/extractor_pipe", "y": 90, "x": 90 },
+        "powered=false,facing=south": { "model": "tetra:block/extractor_pipe", "x": 270 },
+        "powered=false,facing=west": { "model": "tetra:block/extractor_pipe", "y": 90, "x": 270 },
+        "powered=true,facing=down": { "model": "tetra:block/extractor_pipe_powered", "x": 180 },
+        "powered=true,facing=up": { "model": "tetra:block/extractor_pipe_powered" },
+        "powered=true,facing=north": { "model": "tetra:block/extractor_pipe_powered", "x": 90 },
+        "powered=true,facing=east": { "model": "tetra:block/extractor_pipe_powered", "y": 90, "x": 90 },
+        "powered=true,facing=south": { "model": "tetra:block/extractor_pipe_powered", "x": 270 },
+        "powered=true,facing=west": { "model": "tetra:block/extractor_pipe_powered", "y": 90, "x": 270 }
+    }
+}

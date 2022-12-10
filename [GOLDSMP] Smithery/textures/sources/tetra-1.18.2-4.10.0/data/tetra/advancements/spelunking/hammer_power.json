@@ -1,0 +1,22 @@
+{
+    "display": {
+        "icon": {
+            "item": "minecraft:barrier"
+        },
+        "title": {
+            "translate": "tetra.advancements.spelunking.hammer_power.title"
+        },
+        "description": {
+            "translate": "tetra.advancements.spelunking.hammer_power.description"
+        }
+    },
+    "parent": "tetra:spelunking/hammer_fix",
+    "criteria": {
+        "module": {
+            "trigger": "minecraft:impossible",
+            "conditions": {
+                "items": [ { "items": [ "tetra:combustion_chamber" ] } ]
+            }
+        }
+    }
+}

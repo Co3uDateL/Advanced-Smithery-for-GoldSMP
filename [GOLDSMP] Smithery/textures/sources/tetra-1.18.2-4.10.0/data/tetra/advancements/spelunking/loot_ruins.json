@@ -1,0 +1,19 @@
+{
+    "display": {
+        "icon": {
+            "item": "minecraft:barrier"
+        },
+        "title": {
+            "translate": "tetra.advancements.spelunking.loot_ruins.title"
+        },
+        "description": {
+            "translate": "tetra.advancements.spelunking.loot_ruins.description"
+        }
+    },
+    "parent": "tetra:spelunking/hammer_power",
+    "criteria": {
+        "impossible": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

@@ -13,56 +13,58 @@ namespace _GOLDSMP__Smithery
 {
     public partial class MainForm : Form
     {
-
+        static private Random random = new Random();
         //avaliable char list for generating resourcepack code
         //Всего 72 элемента = 10 + 26 + 26 + 10
         //Всего 5 мест с
-        public string alphabet =
+        static public string alphabet =
             "0123456789" +
             "abcdefghijklmnopqrstuvwxyz" +
             "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
             "!{}[]@#$%^";
 
-        public string ignoredChars = "()0123456789 ";
+        static public string ignoredChars = "()0123456789 ";
 
-        public string[] ignoredWords = {
+        static public string[] ignoredWords = {
             "- copia",
             "- копия"
         };
 
+        private Sword tempSword;
 
-        private Random random = new Random();
         public MainForm()
         {
             InitializeComponent();
+            //layer0.Image = new sword().finImage;
+            CountTextures.Text = "" + CountAllFilesSum();
+            CountVariations.Text = "" + CountAllVariety();
         }
 
         private void ConfigureGenerator(object sender, EventArgs e)
         {
-            CountTextures.Text = "" + CountAllFilesSum();
-            CountVariations.Text = "" + CountAllVariety();
             
         }
 
-        private Bitmap GetRandomBitmapFromDir(string path, out int id)
+        static public Bitmap GetRandomBitmapFromDir(string path, out int id)
         {
-            string[] files = Directory.GetFiles(path, "*.png*", SearchOption.AllDirectories);
+            string way = "../../textures/";
+            string[] files = Directory.GetFiles(way + path, "*.png", SearchOption.TopDirectoryOnly);
             id = random.Next(files.Length);
             return new Bitmap(files[id]);
         }
-        private Bitmap GetBitmapByID(string path, out int id)
+        static public Bitmap GetBitmapByID(string path, out int id)
         {
             string[] files = Directory.GetFiles(path, "*.png*", SearchOption.AllDirectories);
             id = random.Next(files.Length);
             return new Bitmap(files[id]);
         }
 
-        private int CountFileInDir(string path)
+        static public int CountFileInDir(string path)
         {
             return Directory.GetFiles("../../textures/" + path, "*.png*", SearchOption.AllDirectories).Length;
         }
 
-        private int[] CountAllFiles()
+        static public int[] CountAllFiles()
         {
             int[] res = new int[5];
 
@@ -74,7 +76,7 @@ namespace _GOLDSMP__Smithery
 
             return res;
         }
-        private int CountAllVariety()
+        static public int CountAllVariety()
         {
             int[] res = CountAllFiles();
             int re = 0;
@@ -103,7 +105,7 @@ namespace _GOLDSMP__Smithery
             
             return re;
         }
-        private int MeasureId(string targetID)
+        static public int MeasureId(string targetID)
         {
             int[] res = CountAllFiles();
             int re = 0;
@@ -136,7 +138,7 @@ namespace _GOLDSMP__Smithery
             return re;
         }
 
-        private int CountAllFilesSum()
+        static public int CountAllFilesSum()
         {
             int[] res = new int[5];
 
@@ -149,7 +151,7 @@ namespace _GOLDSMP__Smithery
             return res[0]+res[1]+res[2]+res[3]+res[4];
         }
 
-        private string EndodeTexturePath(int[] ids)
+        static public string EndodeTexturePath(int[] ids)
         {
             return
                 "[" +
@@ -162,10 +164,16 @@ namespace _GOLDSMP__Smithery
         }
 
         //Адаптировано с https://stackoverflow.com/questions/4623165/make-overlapping-picturebox-transparent-in-c-net/4623525#4623525?newreg=b277c8b04acc4bc4917aba200a9e077c
-        public static Bitmap Combine(Image image1, Image image2/*, int width, int height*/)
+        /// <summary>
+        /// Возвращает результат рисования картинки 2 поверх картинки 1
+        /// </summary>
+        /// <param name="image1"></param>
+        /// <param name="image2"></param>
+        /// <returns></returns>
+        static public Bitmap Combine(Image image1, Image image2/*, int width, int height*/)
         {
-            int width = 160;
-            int height = 160;
+            int width = image1.Width;
+            int height = width;
             //a holder for the result
             Bitmap result = new Bitmap(width, height);
 
@@ -185,7 +193,7 @@ namespace _GOLDSMP__Smithery
             return result;
         }
 
-        public static Bitmap Scale(Image image, int width, int height)
+        static public Bitmap Scale(Image image, int width, int height)
         {
             //a holder for the result
             Bitmap result = new Bitmap(width, height);
@@ -194,7 +202,7 @@ namespace _GOLDSMP__Smithery
             using (Graphics graphics = Graphics.FromImage(result))
             {
                 //set the resize quality modes to high quality
-                graphics.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighSpeed;
+                graphics.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.AssumeLinear;
                 graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
                 graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
                 //draw the image into the target bitmap
@@ -205,77 +213,182 @@ namespace _GOLDSMP__Smithery
             return result;
         }
 
-        private void Generate(object sender, EventArgs e)
+        private void Generate0(object sender, EventArgs e)
         {
             //TODO List<sword> RescentSwords;
-            sword tempSword;
+            Sword tempSword = new Sword();
             int[] ids = new int[5];
             ids[0] = 0; ids[1] = 0; ids[2] = 0; ids[3] = 0; ids[4] = 0;
 
 
-            string way = "../../textures/";
 
-            tempSword.blade = GetRandomBitmapFromDir(way+ "1. blade/", out ids[0]);
 
-            if (tempSword.blade.Width == 32)
-            {
-                tempSword.Frame = tempSword.blade.Width;
-            }
-            else
+            //if (tempSword.parts[(byte)sp.blade].Width == 32)
+            //{
+                //tempSword.scaleFactor = tempSword.parts[0].Width;
+            //}
+            //else
                 //(tempSword.blade.Width == 16)
-                {
-                    tempSword.Frame = 16; //tempSword.blade.Width;
-                }
+                //{
+                    //tempSword.scaleFactor = 16; //tempSword.blade.Width;
+                //}
 
-            tempSword.handle = GetRandomBitmapFromDir(way + "2. handle/", out ids[1]);
-            tempSword.guard = GetRandomBitmapFromDir(way + "3. guard/", out ids[2]);
-            tempSword.pommel = GetRandomBitmapFromDir(way + "4. pommel/", out ids[3]);
-            tempSword.decor = GetRandomBitmapFromDir(way + "5. decor/", out ids[4]);
+            tempSword.parts[(byte)sp.blade] = new Bitmap(GetRandomBitmapFromDir("1. blade/", out ids[0]));
+            tempSword.parts[(byte)sp.handle] = new Bitmap(GetRandomBitmapFromDir("2. handle/", out ids[1]));
+            tempSword.parts[(byte)sp.guard] = new Bitmap(GetRandomBitmapFromDir("3. guard/", out ids[2]));
+            tempSword.parts[(byte)sp.pommel] = new Bitmap(GetRandomBitmapFromDir("4. pommel/", out ids[3]));
+            tempSword.parts[(byte)sp.decor] = new Bitmap(GetRandomBitmapFromDir("5. decor/", out ids[4]));
 
             //TODO resourcepack_code
 
             //Соединяем 5 картинок в 1
-            layer0.Image = Combine( tempSword.decor, Combine(Combine(tempSword.blade, tempSword.handle), Combine(tempSword.guard, tempSword.pommel)) );
+            pb_sword.Image =
+                Combine( 
+                    tempSword.parts[(byte)sp.decor],
+                    Combine(
+                        Combine(
+                            tempSword.parts[(byte)sp.blade],
+                            tempSword.parts[(byte)sp.handle]),
+                        Combine(
+                            tempSword.parts[(byte)sp.guard],
+                            tempSword.parts[(byte)sp.pommel])) 
+                    );
 
-            latest1.Image = Scale(tempSword.blade, tempSword.Frame * 10, tempSword.Frame * 10);
-            latest2.Image = Scale(tempSword.handle, tempSword.Frame * 10, tempSword.Frame * 10);
-            latest3.Image = Scale(tempSword.guard, tempSword.Frame * 10, tempSword.Frame * 10);
-            latest4.Image = Scale(tempSword.pommel, tempSword.Frame * 10, tempSword.Frame * 10);
-            latest5.Image = Scale(tempSword.decor, tempSword.Frame * 10, tempSword.Frame * 10);
+            layer_0.Image = Scale(tempSword.parts[(byte)sp.blade], tempSword.finFrame * 10, tempSword.finFrame * 10);
+            layer_1.Image = Scale(tempSword.parts[(byte)sp.handle], tempSword.finFrame * 10, tempSword.finFrame * 10);
+            layer_2.Image = Scale(tempSword.parts[(byte)sp.guard], tempSword.finFrame * 10, tempSword.finFrame * 10);
+            layer_3.Image = Scale(tempSword.parts[(byte)sp.pommel], tempSword.finFrame * 10, tempSword.finFrame * 10);
+            layer_4.Image = Scale(tempSword.parts[(byte)sp.decor], tempSword.finFrame * 10, tempSword.finFrame * 10);
 
-            layer0.Refresh();
+            pb_sword.Refresh();
 
-            //у каждой позиции максимум 62 варианта!
             tempSword.resourcepack_code = EndodeTexturePath(ids);
-            //VariationId.Text = "" + MeasureId(tempSword.resourcepack_code);
+            //REDO inefficient VariationId.Text = "" + MeasureId(tempSword.resourcepack_code);
             Code2.Text = "" + (tempSword.resourcepack_code);
-            //CountAllVariety().ToString()+" ok "; 
-            //Всего доступно суммарно 916 132 832 варианта текстуры
 
 
 
             textBox2.Text = textBox1.Text + tempSword.resourcepack_code;
+        }
+        private void Generate(object sender, EventArgs e)
+        {
+            tempSword = new Sword();
+
+            //layer0.Image = tempSword.fin;
+            pb_sword.Image = Scale(tempSword.fin, tempSword.finFrame, tempSword.finFrame);
+
+            layer_0.Image = Scale(tempSword.parts[(byte)sp.blade], tempSword.finFrame, tempSword.finFrame);
+            layer_1.Image = Scale(tempSword.parts[(byte)sp.handle], tempSword.finFrame, tempSword.finFrame);
+            layer_2.Image = Scale(tempSword.parts[(byte)sp.guard], tempSword.finFrame, tempSword.finFrame);
+            layer_3.Image = Scale(tempSword.parts[(byte)sp.pommel], tempSword.finFrame, tempSword.finFrame);
+            layer_4.Image = Scale(tempSword.parts[(byte)sp.decor], tempSword.finFrame, tempSword.finFrame);
         }
 
         private void StartSaving(object sender, EventArgs e)
         {
             FolderBro.ShowDialog();
         }
+
+        private void layer_0_Click(object sender, EventArgs e)
+        {
+            //tempSword.parts[sp.blade] = GetRandomBitmapFromDir();
+        }
+
+        private void layer_1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void layer_2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void layer_3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void layer_4_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+
+    //Sword Parts enumerator
+    enum sp
+    {
+        blade = 0,
+        handle = 1,
+        guard = 2,
+        pommel = 3,
+        decor = 4,
+        decor2 = 5,
     }
 
     //TODO history
-    struct sword
+    class Sword
     {
-        public Bitmap blade;
-        public Bitmap handle;
-        public Bitmap guard;
-        public Bitmap pommel;
-        public Bitmap decor;
+        //public Bitmap blade;
+        //public Bitmap handle;
+        //public Bitmap guard;
+        //public Bitmap pommel;
+        //public Bitmap decor;
 
-        public int Frame; //32 | 64
+        public Bitmap[] parts;
+
+        public Bitmap fin;
+        
+        public int finFrame; //0.5 = 16 | 1 = 32 | 2 = 64
 
         public string resourcepack_code;
-        public string name;
+
+        //aka Sword Parts Path enumerator
+        static readonly string[] sppath = new string[5]
+        {
+                "1. blade", //0
+                "2. handle", //1
+                "3. guard", //2
+                "4. pommel", //3
+                "5. decor" //4
+        };
+        public Sword()
+        {
+
+            parts = new Bitmap[5];
+            int[] ids = new int[5];
+
+
+            //Загрузить картинки для каждой части
+            for (int i=0; i < parts.Length;  i++)
+            {
+                parts[i] = MainForm.GetRandomBitmapFromDir(sppath[i], out ids[i]);
+            }
+
+            this.resourcepack_code = MainForm.EndodeTexturePath(ids);
+            
+
+
+            finFrame = 160;
+            //TODO resourcepack_code
+
+
+            //Соединяем 5 картинок в 1
+            fin =
+                MainForm.Combine(
+                    MainForm.Combine(
+                        MainForm.Combine(
+                            parts[(byte)sp.blade],
+                            parts[(byte)sp.handle]
+                        ),
+                        MainForm.Combine(
+                            parts[(byte)sp.guard],
+                            parts[(byte)sp.pommel]
+                        )
+                    ),
+                    parts[(byte)sp.decor]
+                    );
+        }
 
     }
 }

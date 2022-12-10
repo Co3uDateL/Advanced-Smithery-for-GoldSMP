@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "": [
+            { "model": "tetra:block/forged_wall1" },
+            { "model": "tetra:block/forged_wall2" },
+            { "model": "tetra:block/forged_wall3" },
+            { "model": "tetra:block/forged_wall1", "x": 90, "y": 90 },
+            { "model": "tetra:block/forged_wall2", "x": 90, "y": 90 },
+            { "model": "tetra:block/forged_wall3", "x": 90, "y": 90 }
+        ]
+    }
+}

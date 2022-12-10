@@ -1,0 +1,16 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "model": "tetra:block/forged_crate"
+    },
+    "variants": {
+        "stacked=false,facing=north": { "model": "tetra:block/forged_crate" },
+        "stacked=false,facing=south": { "model": "tetra:block/forged_crate", "y": 180 },
+        "stacked=false,facing=west": { "model": "tetra:block/forged_crate", "y": -90 },
+        "stacked=false,facing=east": { "model": "tetra:block/forged_crate", "y": 90 },
+        "stacked=true,facing=north": { "model": "tetra:block/forged_crate_offset" },
+        "stacked=true,facing=south": { "model": "tetra:block/forged_crate_offset", "y": 180 },
+        "stacked=true,facing=west": { "model": "tetra:block/forged_crate_offset", "y": -90 },
+        "stacked=true,facing=east": { "model": "tetra:block/forged_crate_offset", "y": 90 }
+    }
+}

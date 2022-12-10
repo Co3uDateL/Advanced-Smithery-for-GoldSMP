@@ -1,0 +1,24 @@
+{
+    "display": {
+        "icon": {
+            "item": "minecraft:barrier"
+        },
+        "title": {
+            "translate": "tetra.advancements.spelunking.hammer_fix.title"
+        },
+        "description": {
+            "translate": "tetra.advancements.spelunking.hammer_fix.description"
+        }
+    },
+    "parent": "tetra:spelunking/find_cell",
+    "criteria": {
+        "fuel": {
+            "trigger": "impossible",
+            "conditions": {
+                "data": {
+                    "functional": "true"
+                }
+            }
+        }
+    }
+}

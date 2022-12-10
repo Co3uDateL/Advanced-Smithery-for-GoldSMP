@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "active=0": { "model": "tetra:block/seeping_bedrock_inactive" },
+        "active=1": { "model": "tetra:block/seeping_bedrock_active" }
+    }
+}
