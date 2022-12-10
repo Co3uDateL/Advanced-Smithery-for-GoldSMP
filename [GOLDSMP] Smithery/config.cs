@@ -16,5 +16,10 @@ namespace _GOLDSMP__Smithery
         {
             InitializeComponent();
         }
+
+        private void layer_41_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

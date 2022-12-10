@@ -274,8 +274,8 @@ namespace _GOLDSMP__Smithery
             //layer0.Image = tempSword.fin;
             pb_sword.Image = Scale(tempSword.fin, tempSword.finFrame, tempSword.finFrame);
 
-            layer_0.Image = Scale(tempSword.parts[(byte)sp.blade], tempSword.finFrame, tempSword.finFrame);
-            layer_1.Image = Scale(tempSword.parts[(byte)sp.handle], tempSword.finFrame, tempSword.finFrame);
+            layer_00.Image = Scale(tempSword.parts[(byte)sp.blade], tempSword.finFrame, tempSword.finFrame);
+            layer_01.Image = Scale(tempSword.parts[(byte)sp.handle], tempSword.finFrame, tempSword.finFrame);
             layer_2.Image = Scale(tempSword.parts[(byte)sp.guard], tempSword.finFrame, tempSword.finFrame);
             layer_3.Image = Scale(tempSword.parts[(byte)sp.pommel], tempSword.finFrame, tempSword.finFrame);
             layer_4.Image = Scale(tempSword.parts[(byte)sp.decor], tempSword.finFrame, tempSword.finFrame);
@@ -302,11 +302,6 @@ namespace _GOLDSMP__Smithery
         }
 
         private void layer_3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void layer_4_Click(object sender, EventArgs e)
         {
 
         }
